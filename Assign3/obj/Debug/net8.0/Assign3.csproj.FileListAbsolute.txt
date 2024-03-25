@@ -1,0 +1,5 @@
+C:\CPSC1012\1012--Assign3--Shambhavi\Assign3\obj\Debug\net8.0\Assign3.GeneratedMSBuildEditorConfig.editorconfig
+C:\CPSC1012\1012--Assign3--Shambhavi\Assign3\obj\Debug\net8.0\Assign3.AssemblyInfoInputs.cache
+C:\CPSC1012\1012--Assign3--Shambhavi\Assign3\obj\Debug\net8.0\Assign3.AssemblyInfo.cs
+C:\CPSC1012\1012--Assign3--Shambhavi\Assign3\obj\Debug\net8.0\Assign3.csproj.CoreCompileInputs.cache
+C:\CPSC1012\1012--Assign3--Shambhavi\Assign3\obj\Debug\net8.0\Assign3.sourcelink.json
