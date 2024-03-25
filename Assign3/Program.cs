@@ -1,21 +1,11 @@
-﻿// graph- substring
-// double[] minvalue = 0
-// max = 100
-
-// TODO: declare a constant to represent the max size of the values
-// and dates arrays. The arrays must be large enough to store
-// values for an entire month.
+﻿
 double minValue = 0;
 double maxValue = 100;
 int physicalSize = 31;
 int logicalSize = 0;
 
-// TODO: create a double array named 'values', use the max size constant you declared
-// above to specify the physical size of the array.
-double[] values = new double[physicalSize];
 
-// TODO: create a string array named 'dates', use the max size constant you declared
-// above to specify the physical size of the array.
+double[] values = new double[physicalSize];
 string[] dates = new string[physicalSize];
 
 bool loopAgain = true;
@@ -110,15 +100,6 @@ string Prompt(string prompt)
 }
 return myString;
 }
-// string GetFileName()
-// {
-// 	string fileName = "";
-// 	do
-// 	{
-// 		fileName = Prompt("Enter file name including .csv or .txt: ");
-// 	} while (string.IsNullOrWhiteSpace(fileName));
-// 	return fileName;
-// }
 
 int LoadFileValuesToMemory(string[] dates, double[] values)
 {
@@ -128,7 +109,6 @@ int LoadFileValuesToMemory(string[] dates, double[] values)
 	string[] csvFileInput = File.ReadAllLines(filePath);
 	for(int i = 0; i < csvFileInput.Length; i++)
 	{
-		// Console.WriteLine($"lineIndex: {i}; line: {csvFileInput[i]}");
 		string[] items = csvFileInput[i].Split(',');
 		for(int j = 0; j < items.Length; j++)
 		{
