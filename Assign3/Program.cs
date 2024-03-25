@@ -6,7 +6,7 @@
 // and dates arrays. The arrays must be large enough to store
 // values for an entire month.
 double minValue = 0;
-double maxvalue = 100;
+double maxValue = 100;
 int physicalSize = 31;
 int logicalSize = 0;
 
@@ -196,7 +196,7 @@ string PromptDate(string prompt)
 			Console.WriteLine($"{ex.Message}");
 		}
 	}
-	return date.ToString("MM-dd-yyyy");
+	return date.ToString("mm-dd-yyyy");
 }
 double FindHighestValueInMemory(double[] values, int logicalSize)
 {
@@ -226,15 +226,43 @@ void SaveMemoryValuesToFile(string[] dates, double[] values, int logicalSize)
 
 int AddMemoryValues(string[] dates, double[] values, int logicalSize)
 {
-	Console.WriteLine("Not Implemented Yet");
-	return 0;
-	//TODO: Replace this code with yours to implement this function.
+	double value = 0.0;
+	string dateString = "";
+
+	dateString = PromptDate("Enter date format mm-dd-yyyy (eg 11-23-2023): ");
+	bool found = false;
+	for (int i = 0; i < logicalSize; i++)
+	  if (dates[i].Equals(dateString))
+	    found = true;
+	if(found == true)
+	  throw new Exception($"{dateString} is already in memory. Edit entry instead.");
+	value = PromptDoulbeBetweenMinMax($"Enter a double value", minValue, maxValue);
+	dates[logicalSize] = dateString;
+	values[logicalSize] = value;
+	logicalSize++;
+	return logicalSize;
 }
 
 void EditMemoryValues(string[] dates, double[] values, int logicalSize)
 {
-	Console.WriteLine("Not Implemented Yet");
-	//TODO: Replace this code with yours to implement this function.
+	double value = 0.0
+	string dateString = "";
+	int foundIndex = 0;
+
+	if(logicalSize == 0)
+	  throw new Exception($"No Entries loaded. Please load a file to memory or add a value in memory.");
+	dateString = PromptDate("enter date format mm-dd-yyyy (eg 11-23-2023):");
+	bool found = false;
+	for (int i = 0; i < logicalSize; i++)
+	  if (dates[i].Equals(dateString))
+	  {
+		found = true;
+		foundIndex = i;
+	  }
+	if(found == false)
+	  throw new Exception($"{dateString} is not in memory. Add entry instead.");
+	value = PromptDoulbeBetweenMinMax($"Enter a double value", minValue, maxValue);
+	value[foundIndex] = value;
 }
 
 void GraphValuesInMemory(string[] dates, double[] values, int logicalSize)
