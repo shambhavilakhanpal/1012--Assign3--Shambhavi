@@ -81,9 +81,9 @@ void DisplayAnalysisMenu()
 
 string Prompt(string prompt)
 {
-  bool invalidInput = true;
+  bool inValidInput = true;
   string myString = "";
-  while (invalidInput)
+  while (inValidInput)
 {
 	try
 	{
@@ -102,7 +102,7 @@ return myString;
 }
 
 int LoadFileValuesToMemory(string[] dates, double[] values)
-{
+{   string fileName = Prompt("Enter file name including .csv or .txt:");
 	string filePath = $"./data/{fileName}";
 	if (!File.Exists(filePath))
 		throw new Exception($"The file {fileName} does not exist.");
@@ -230,7 +230,7 @@ void FindAverageOfValuesInMemory(double[] values, int logicalSize)
 
 void SaveMemoryValuesToFile(string[] dates, double[] values, int logicalSize)
 {
-	string fileName = prompt("Enter file name including .csv or .txt:");
+	string fileName = Prompt("Enter file name including .csv or .txt:");
 	string filePath = $"./data/{fileName}";
 	if (logicalSize == 0)
 	  throw new Exception("No entries loaded. Please load a file into memory");
@@ -285,7 +285,7 @@ void EditMemoryValues(string[] dates, double[] values, int logicalSize)
 	if(found == false)
 	  throw new Exception($"{dateString} is not in memory. Add entry instead.");
 	value = PromptDoulbeBetweenMinMax($"Enter a double value", minValue, maxValue);
-	value[foundIndex] = value;
+	
 }
 
 void GraphValuesInMemory(string[] dates, double[] values, int logicalSize)
