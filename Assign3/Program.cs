@@ -87,7 +87,7 @@ string Prompt(string prompt)
 {
 	try
 	{
-	Console.Write(prompt)
+	Console.Write(prompt);
 	myString = Console.ReadLine().Trim();
 	if(string.IsNullOrEmpty(myString))
 		  throw new Exception($"Empty Input: Please enter something.");
@@ -129,13 +129,13 @@ void DisplayMemoryValues(string[] dates, double[] values, int logicalSize)
 {
 	if(logicalSize == 0)
 		throw new Exception($"No Entries loaded. Please load a file to memory or add a value in memory");
-	Array.Sort(dates, values, 0, logicalSize)
+	Array.Sort(dates, values, 0, logicalSize);
 	Console.WriteLine($"\nCurrent Loaded Entries: {logicalSize}");
 	Console.WriteLine($"   Date     Value");
 	for (int i = 0; i < logicalSize; i++)
 		Console.WriteLine($"{dates[i]}   {values[i]}");
 }
-double PromptDoulbeBetweenMinMax(string prompt, double min, double, max)
+double PromptDoulbeBetweenMinMax(string prompt, double min, double max)
 {
 	bool inValidInput = true;
 	double num = 0;
@@ -214,7 +214,7 @@ double FindLowestValueInMemory(double[] values, int logicalSize)
 
 void FindAverageOfValuesInMemory(double[] values, int logicalSize)
 {
-	double sum = 0
+	double sum = 0;
 	if (logicalSize == 0)
 	{
 		throw new Exception("No entries loaded. Please load a file into memory or add a value to memory.");
@@ -233,7 +233,7 @@ void SaveMemoryValuesToFile(string[] dates, double[] values, int logicalSize)
 	string fileName = prompt("Enter file name including .csv or .txt:");
 	string filePath = $"./data/{fileName}";
 	if (logicalSize == 0)
-	  throe new Exception("No entries loaded. Please load a file into memory");
+	  throw new Exception("No entries loaded. Please load a file into memory");
 	if (logicalSize >1)
 	  Array.Sort(dates, values, 0, logicalSize);
 	
@@ -268,7 +268,7 @@ int AddMemoryValues(string[] dates, double[] values, int logicalSize)
 
 void EditMemoryValues(string[] dates, double[] values, int logicalSize)
 {
-	double value = 0.0
+	double value = 0.0;
 	string dateString = "";
 	int foundIndex = 0;
 
