@@ -180,22 +180,52 @@ string PromptDate(string prompt)
 }
 double FindHighestValueInMemory(double[] values, int logicalSize)
 {
-	Console.WriteLine("Not Implemented Yet");
-	return 0;
-	//TODO: Replace this code with yours to implement this function.
+	double highestValue = values[0];
+	if (logicalSize == 0)
+	  throw new Exception("No entries loaded. Please load a file into memory or add a value to memory.");
+	for (int i = 1; i < logicalSize; i++)
+	{
+		if (values[i] > highestValue)
+		{
+			highestValue = values[i];
+		}
+	}  
+	Console.WriteLine($"Highest value in memory: {highestValue} ");
+	return highestValue;
 }
 
 double FindLowestValueInMemory(double[] values, int logicalSize)
 {
-	Console.WriteLine("Not Implemented Yet");
-	return 0;
-	//TODO: Replace this code with yours to implement this function.
+	double lowestValue = values[0];
+	if (logicalSize == 0)
+	{
+		throw new Exception("No entries loaded. Please load a file into memory or add a value to memory.");
+	}
+	for (int i = 1; i < logicalSize; i++)
+	{
+		if (values[i] < lowestValue)
+		{
+			lowestValue = values[i];
+		}
+	}
+	Console.WriteLine($"Lowest value in memory: {lowestValue}");
+	return lowestValue;
 }
 
 void FindAverageOfValuesInMemory(double[] values, int logicalSize)
 {
-	Console.WriteLine("Not Implemented Yet");
-	//TODO: Replace this code with yours to implement this function.
+	double sum = 0
+	if (logicalSize == 0)
+	{
+		throw new Exception("No entries loaded. Please load a file into memory or add a value to memory.");
+	}
+	for (int i = 0; i < logicalSize; i++)
+	{
+		sum += values[i];
+	}
+	double average = sum / logicalSize;
+	Console.WriteLine($"Average of values in memory: {average}");
+
 }
 
 void SaveMemoryValuesToFile(string[] dates, double[] values, int logicalSize)
