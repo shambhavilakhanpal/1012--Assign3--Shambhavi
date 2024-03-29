@@ -290,5 +290,39 @@ void EditMemoryValues(string[] dates, double[] values, int logicalSize)
 
 void GraphValuesInMemory(string[] dates, double[] values, int logicalSize)
 {
-	
+	const int graphWidth = 20;
+	const int graphHeight = 20;
+	double xScale = (double)graphWidth / logicalSize;
+	double yScale = (double)graphHeight / maxValue;
+
+	char[,] graph = new char[graphHeight, graphWidth];
+
+	for ( int y = 0; y < graphHeight; y++)
+	{
+		for ( int x = 0; x < graphWidth; x++)
+		{
+			graph[y, x] = ' ';
+		}
+	}
+
+	for (int i = 0; i < logicalSize; i++)
+	{
+		int x = (int)(i * xScale);
+		int y = (int)(values[i] * yScale);
+
+		if ( y < graphHeight && x < graphWidth)
+		{
+			graph[graphHeight - 1 - y, x] = values[i].ToString()[0];
+		}
+	}
+
+	for (int y = graphHeight - 1; y >=0; y--)
+	{
+		for (int x = 0; x < graphWidth; x++)
+		{ 
+			Console.WriteLine(graph[y, x]);
+		}
+		Console.WriteLine();
+	}
+	Console.WriteLine(new string('-', graphWidth));
 }
